@@ -1,0 +1,42 @@
+{% extends 'api/base.html' %}
+
+{% load static %}
+{% block content %}
+{% include 'api/topbar.html' %}
+<section class="hero has-background-white-ter is-fullheight">
+    <div id="particles-js"></div>
+    <div class="hero-body bg-dark-blue">
+        <div class="container has-text-centered">
+            <div class="column is-4 is-offset-4">
+                <div class="box">
+                    <span class="title">Submit Your Model</span>
+                    <a href="{% url 'manual' %}"><i class="material-icons">help_outline</i></a>
+                    <form action="{% url 'create_model' %}" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        {% for field in form %}
+                        {% if forloop.last %}
+                        <div class="file has-name is-right">
+                            {{form.docfile}}
+                        </div>
+                        {% else%}
+                        <div class="field">
+                            <div class="control">
+                                <input id="{{field.id_for_label}}" name="{{field.name}}" class="input is-large"
+                                    placeholder="{{field.name}}" value="{% if field.value is None %}{% else %}{{field.value}}{% endif %}">
+                                {{field.errors}}
+                            </div>
+                        </div>
+                        {% endif%}
+                        {% endfor %}
+                        <button class="button is-block is-info is-large is-fullwidth" type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="{% static 'api/particles.min.js' %}"></script>
+<script>
+    particlesJS.load('particles-js', "{% static 'api/particles.json' %}")
+</script>
+{% endblock %}

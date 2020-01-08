@@ -1,0 +1,32 @@
+{% extends 'api/base.html' %}
+
+{% block title %}Confirm Model{% endblock %}
+{% load static %}
+
+{% block content %}
+{% include 'api/topbar.html' %}
+<section class="hero has-background-white-ter is-fullheight">
+    <div id="particles-js"></div>
+    <div class="hero-body bg-dark-blue">
+        <div class="container has-text-centered">
+            <div class="column is-4 is-offset-4">
+                <h3 class="title has-text-white">Do you want to submit this model</h3>
+                <div class="box">
+                    <h1>Title: {{ title }}</h1>
+                    <h1>Description: {{ description }}</h1>
+                    <h1>File: {{ file }} </h1>
+                    <br>
+                    <button onclick="window.location='model_created'" class="button is-block is-info is-large is-fullwidth"
+                        type="submit">Submit</button>
+                    <br>
+                    <button onclick="window.location='/'" class="button is-block is-info is-large is-fullwidth" type="submit">Nevermind</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="{% static 'api/particles.min.js' %}"></script>
+<script>
+    particlesJS.load('particles-js', "{% static 'api/particles.json' %}")
+</script>
+{% endblock %}

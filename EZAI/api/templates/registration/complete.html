@@ -1,0 +1,22 @@
+{% extends 'api/base.html' %}
+{% block title %}Email has been sent{% endblock %}
+{% load static %}
+
+{% block content %}
+<section class="hero has-background-white-ter is-fullheight">
+    <div id="particles-js"></div>
+    <div class="hero-body bg-dark-blue">
+        <div class="container has-text-centered">
+            <div class="column is-4 is-offset-4">
+                <h3 class="title has-text-white">You password was successfully changed!</h3>
+                <a href="/accounts/login/">Login</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+<script src="{% static 'api/particles.min.js' %}"></script>
+<script>
+    particlesJS.load('particles-js', "{% static 'api/particles.json' %}")
+</script>
+{% endblock %}

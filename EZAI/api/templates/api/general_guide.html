@@ -1,0 +1,97 @@
+{% extends "api/base.html" %}
+{% load static %}
+
+{% block content %}
+<main class="page-content">
+    {% include 'api/topbar.html' %}
+    <div id="particles-js">
+        <div class="wrapper">
+            <div class="hero is-medium">
+                <div class="hero-body">
+                    <div class="container">
+                        <div class="column has-text-centered">
+                            <div data-aos="fade-up">
+                                <h1 class="title has-text-white">Submitting a model</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="section text-justify p-s-2">
+        <div class="hero is-large">
+            <div class="container">
+                <h1 data-aos="fade-down" class="title has-text-centered">Let's get started!</h1>
+                <p data-aos="fade-up">
+                    The aim of ezai is to make the task of deploying your models as easy as possible. With a little effort from the developers side, we can make this process painless for everyone. There are a few steps that you have to take. 
+                  <br>
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="section text-justify p-s-2">
+        <div class="hero is-large">
+            <div class="container">
+                <h1 data-aos="fade-up" class="title has-text-centered">Accepted models</h1>
+                <p data-aos="fade-up">
+                  Currently the ezai platform only supports models made with python, supporting the following libraries: 
+                </p>
+                <br>
+                <ul data-aos="fade-up">
+                  <li>
+                    <p>
+                      <strong>&#8226; Sklearn</strong>
+                    </p>
+                  </li>
+                  <br>
+                  <li>
+                    <p>
+                      <strong>&#8226; Keras (TF backend) </strong>
+                    </p>
+                  </li>
+                  <br>
+                  <li>
+                    <p>
+                      <strong>&#8226; Numpy</strong>
+                    </p>
+                  </li>  
+                </ul>
+                <br>
+                <p data-aos="fade-up">
+                  Don’t worry, the fact that your favorite python library is not listed here does not necessarily mean it wont work. For libraries to get the supported status means that it is tested on our system. 
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="section text-justify p-s-2">
+    <div class="hero is-large">
+        <div class="container">
+            <h1 data-aos="fade-up" class="title has-text-centered">Process</h1>
+            <h3 data-aos="fade-up" class="title">Sklearn and Numpy</h3>
+            <p data-aos="fade-up">
+              Once you have completed your model, it has to be formatted in a way that our platform can handle. 
+              This means that you have to serialize it by using a library called pickle. 
+              Pickle will serialize your python code into a binary that we can store and run. 
+              For more information read: <a href="https://docs.python.org/2/library/pickle.html">https://docs.python.org/2/library/pickle.html</a>.
+              <br>
+            </p>
+            <br>
+            <h3 data-aos="fade-up" class="title">Keras</h3>
+            <p data-aos="fade-up">
+              For Keras models you have to use a different serializer. The model has to be saved into a .h5 format. For a comprehensive guide on the process, read: <a href="#">some link</a>
+            <br>
+            </p>
+        </div>
+    </div>
+    </section>
+    <footer class="footer bg-dark-blue has-text-white">
+    </footer>
+</main>
+
+<script>
+    AOS.init({
+        duration: 800,
+    })
+</script>
+{% endblock content %}

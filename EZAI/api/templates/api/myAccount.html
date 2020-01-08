@@ -1,0 +1,77 @@
+{% extends "api/base.html" %}
+
+{% load static %}
+{% block content %}
+{% include 'api/topbar.html' %}
+<section class="hero has-background-white-ter is-fullheight">
+    {% if messages %}
+        <div class="modal is-active">
+            <div class="modal-background"></div>
+            <div data-aos="fade-up" class="modal-content content-centered">
+                {% for message in messages %}
+                    <article class="message is-info">
+                        <div class="message-header">
+                            <p>Success!</p>
+                            <button class="delete" aria-label="delete"></button>
+                        </div>
+                        <div class="message-body">
+                            {{message}}
+                        </div>
+                    </article>
+                    {% endfor %}
+                </div>
+            <button id="modal-toggle" class="modal-close is-large" aria-label="close"></button>
+        </div>
+    {% endif %}
+    <div id="particles-js"></div>
+    <div class="hero-body bg-dark-blue">
+        <div class="container has-text-centered">
+            <div class="column is-4 is-offset-4">
+                <h3 class="title has-text-white">Account page</h3>
+                <div class="box">
+                    <p>Username: {{user.get_username }}</p>
+                    <p>Email: {{user.email }}</p>
+                    <p>Full name: {{ user.get_full_name }}</p>
+                    <p>Last login: {{ user.last_login }}</p>
+                </div>
+                <div class="box">
+                    <a href="{% url 'change_email' %}" class="button is-link"> change email</a>
+                    <a href="{% url 'change_password' %}" class="button is-link">change password</a>
+                </div>
+            </div>
+            <h3 class="title has-text-white"> Your Uploaded Models</h3>
+            {% for MLModel in ModelList %}
+            <div class="card">
+                <header class="card-header">
+                    <p class="card-header-title">
+                        {{MLModel.title}}
+                    </p>
+                </header>
+                <div class="card-content">
+                    <div class="content">
+                        {{MLModel.description}}
+                    </div>
+                </div>
+                <footer class="card-footer">
+                    <a href="{% url 'model_docs' MLModel.id %}" class="card-footer-item">Details</a>
+                </footer>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+<script src="{% static 'api/particles.min.js' %}"></script>
+<script>
+    particlesJS.load('particles-js', "{% static 'api/particles.json' %}")
+
+    document.querySelector(".modal").addEventListener("click", function(e){
+        e.preventDefault()
+        document.querySelector('.modal').classList.remove('is-active');
+        document.querySelector('html').classList.remove('is-clipped');
+    })
+
+    AOS.init({
+        duration: 800,
+    })
+</script>
+{% endblock %}

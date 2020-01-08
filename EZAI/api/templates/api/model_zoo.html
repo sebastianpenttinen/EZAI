@@ -1,0 +1,47 @@
+{% extends 'api/base.html' %}
+
+{% load static %}
+
+{% block title %}Model Zoo{% endblock %}
+
+{% block content %}
+{% include 'api/topbar.html' %}
+<section class="is-fullheight">
+    <div class="container">
+        <form class="search m-1" action="{% url 'search' %}" method="POST">
+            {% csrf_token %}
+            <div class="field has-addons">
+                <div class="control">
+                    <input class="input is-normal" type="text" placeholder="Search here..." name="usr_query" value='{{ query }}'
+                        required>
+                </div>
+                <div class="control">
+                    <button class=" button is-info is-block is-normal" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
+        <div class="image-list">
+            {% for MLModel in object_list %}
+            <a href="{% url 'model_docs' MLModel.id %}" style="text-decoration: none; color: black;">
+                <div class="card model-card">
+                    <header class="card-header">
+                        <p class="card-header-title">
+                            {{MLModel.title}}
+                        </p>
+                    </header>
+                    <div class="card-content">
+                        <div class="content">
+                            {{MLModel.description}}
+                        </div>
+                    </div>
+                    <footer class="card-footer">
+                        <a href="{% url 'model_docs' MLModel.id %}" class="card-footer-item">Details</a>
+                    </footer>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+    </div>
+</section>
+{% endblock %}

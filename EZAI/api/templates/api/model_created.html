@@ -1,0 +1,25 @@
+{% extends 'api/base.html' %}
+
+{% load static %}
+
+{% block title %}Model Created{% endblock %}
+
+{% block content %}
+{% include 'api/topbar.html' %}
+<section class="hero has-background-white-ter is-fullheight">
+    <div id="particles-js"></div>
+    <div class="hero-body bg-dark-blue">
+        <div class="container has-text-centered">
+            <div class="column is-4 is-offset-4">
+                <h2 class="title has-text-white"> You succesfully submitted your model</h2>
+                <button onclick="window.location='/'" class="button is-block is-info is-large is-fullwidth" type="submit">Back
+                    Home</button>
+            </div>
+        </div>
+    </div>
+</section>
+<script src="{% static 'api/particles.min.js' %}"></script>
+<script>
+    particlesJS.load('particles-js', "{% static 'api/particles.json' %}")
+</script>
+{% endblock %}

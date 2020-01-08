@@ -1,0 +1,135 @@
+{% extends "api/base.html" %}
+{% load static %}
+
+{% block content %}
+<main class="page-content">
+    {% include 'api/topbar.html' %}
+    <div id="particles-js">
+        <div class="wrapper">
+            <div class="hero is-large">
+                <div class="hero-body">
+                    <div class="container">
+                        <div class="column has-text-centered">
+                            <div data-aos="fade-up">
+                                <h1 class="title has-text-white">ezai</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="section">
+        <div class="hero is-large vertical-margin">
+            <div class="container has-text-centered">
+                <h1 data-aos="fade-up" class="title">Deploy Fast</h1>
+                <p data-aos="fade-up">
+                    We let you focus on the task at hand. Register and upload
+                    your model to the service and have an API running in seconds.
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="section">
+        <div class="hero is-medium">
+            <div class="container is-medium has-text-centered">
+                <h1 data-aos="fade-up" class="title">The Process</h1>
+            </div>
+            <nav class="level vertical-margin">
+                <div class="level-item has-text-centered">
+                    <a href="{% url 'signup' %}" class="link-nostyle">
+                        <div data-aos="fade-right">
+                            <i class="material-icons huge-icon">person_add</i>
+                            <p class="heading">Register</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="level-item has-text-centered">
+                    <a href="{% url 'create_model' %}" class="link-nostyle">
+                        <div data-aos="fade-right">
+                            <i class="material-icons huge-icon">cloud_upload</i>
+                            <p class="heading">Upload</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="level-item has-text-centered">
+                    <a href="{% url 'help' %}" class="link-nostyle">
+                        <div data-aos="fade-left">
+                            <i class="material-icons huge-icon">public</i>
+                            <p class="heading">Share</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="level-item has-text-centered">
+                    <a class="link-nostyle">
+                        <div data-aos="fade-left">
+                            <i class="material-icons huge-icon">sentiment_satisfied</i>
+                            <p class="heading">Relax</p>
+                        </div>
+                    </a>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <section class="section">
+        <div class="hero is-medium">
+            <div class="container is-medium has-text-centered">
+                <h1 data-aos="fade-up" class="title">Use cases</h1>
+            </div>
+            <nav class="level vertical-margin">
+                <div class="level-item has-text-centered">
+                    <div data-aos="fade-right">
+                        <p class="heading">Facial recognition</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div data-aos="fade-up">
+                        <p class="heading">Language processing</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div data-aos="fade-up">
+                        <p class="heading">Speech recognition</p>
+                    </div>
+                </div>
+                <div class="level-item has-text-centered">
+                    <div data-aos="fade-left">
+                        <p class="heading">Classification</p>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </section>
+    <section class="section">
+        <div class="hero is-large">
+            <div class="container is-medium has-text-centered">
+                <h1 data-aos="fade-up" class="title">Register now</h1>
+                <p>
+
+                </p>
+                <a data-aos="fade-up" href="/signup" class="button is-info">
+                    <strong>
+                        Sign up
+                    </strong>
+                </a>
+            </div>
+        </div>
+    </section>
+    <footer class="footer bg-dark-blue has-text-white">
+        <div class="content has-text-centered">
+            <br>
+            Contact us: ezai.team@gmail.com</br>
+            </p>
+        </div>
+    </footer>
+    <!-- include in index.html - not needed in others -->
+</main>
+<script src="{% static 'api/particles.min.js' %}"></script>
+<script>
+    particlesJS.load('particles-js', "{% static 'api/particles.json' %}")
+
+    AOS.init({
+        duration: 800,
+    })
+</script>
+{% endblock content %}

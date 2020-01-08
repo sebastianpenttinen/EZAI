@@ -1,0 +1,86 @@
+{% extends "api/base.html" %}
+{% load static %}
+
+{% block content %}
+{% include 'api/topbar.html' %}
+<div class="demo-content" style="border-top: 1px solid black;">
+  <div class="columns">
+    <div class="column">
+      <section class="section">
+        <h1 class="is-size-4 is-capitalized">Documentation</h1>
+        <p>
+          This is the documentation for this specific
+          model. By using our API's you agree with the
+          terms and conditions. If you have any complaints
+          please contact us at support@ai.com
+        </p>
+      </section>
+      <section class="section">
+        <br>
+        <br>
+        <br>
+        <h1 class="is-size-4 is-capitalized">Prediction:</h1>
+        <p>
+          The prediction happens by sending a json payload
+          with the following
+          to the endpoint at "api/predict"
+        </p>
+
+        <br>
+        <br>
+        <p>
+          Response will be a single array
+          with the predicted values.
+
+        </p>
+        <p>
+          example response: [2] (Iris Virginica)
+        </p>
+      </section>
+    </div>
+    <div class="column bg-dark-black">
+      <section class="section has-text-white">
+        <h1 class="is-size-4 is-capitalized">Python examples</h1>
+
+        <h1 class="is-size-5 is-capitalized">API Usage</h1>
+
+        <br>
+        <p>Register to the API to get API keys to make requests. </p>
+
+        <br>
+        <p>
+          This model is intended to test the functionality, any random string provided
+          as an API key will work as intended.
+        </p>
+      </section>
+      <section class="section has-text-white">
+        <h1 class="is-size-5">Prediction:</h1>
+        <pre class="is-paddingless"><code class="javascript">
+fetch("https://ai.com/api/predict/", {
+  method: "post",
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json'
+  },
+
+  body: JSON.stringify({
+    model_params: [[1,2,3,4]]   // parameters to predict
+  })
+})
+.then( (response) => { 
+    //do something awesome that makes the world a better place
+});
+            </code></pre>
+      </section>
+    </div>
+  </div>
+</div>
+<link rel="stylesheet" href="{% static 'api/vs2015.css' %}">
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+<script>
+  hljs.initHighlightingOnLoad();
+  AOS.init({
+    duration: 800,
+  })
+</script>
+{% endblock content %}

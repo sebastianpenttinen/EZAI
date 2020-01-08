@@ -1,0 +1,162 @@
+/* blue: #2984D3 */
+/* white: #F7F9FA */
+/* lightblue: #82AFE0 */
+
+body {
+	margin: 0;
+	padding: 0;
+	min-height: 100vh;
+}
+
+img {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	padding-top: 20px;
+}
+
+#particles-js {
+	background-color: rgb(20, 65, 85);
+	pointer-events: none;
+}
+
+.particles-js-canvas-el {
+	position: fixed;
+	top: 0;
+	left: 0;
+}
+
+.main-content {
+	background-color: rgb(22, 65, 84);
+}
+
+.is-info {
+	background-color: #2984d3;
+}
+
+.is-fullheight {
+	min-height: 100vh;
+}
+
+.button {
+	margin-left: .5rem;
+}
+
+.card {
+	margin: 1rem;
+	float: left;
+	width: 30%;
+	height: 30%;
+}
+
+/* hack for model zoo, preferrably change later*/
+.card-content {
+	height: 8rem;
+}
+
+.image-list {
+	display: block;
+}
+
+.vertical-margin {
+	margin-top: 4rem;
+	margin-bottom: 4rem;
+}
+
+.bg-dark-blue {
+	background-color: rgb(20, 65, 85);
+}
+
+.bg-dark-black {
+	background-color: rgb(30, 30, 30);
+}
+
+.huge-icon {
+	font-size: 5rem;
+}
+
+.content-centered {
+	display: flex;
+	justify-content: center;
+}
+
+/* SPACINGS */
+.m-1 {
+	margin: 1rem !important;
+}
+
+.p-1 {
+	padding: 1rem !important;
+}
+.p-2 {
+	padding: 2rem !important;
+}
+.p-l-2 {
+	padding-left: 2em !important;
+}
+
+.text-justify {
+	text-align: justify;
+}
+
+.p-s-2 {
+}
+
+.markdownx > textarea {
+	width: 100%;
+	height: 60vh;
+	resize: none;
+}
+
+.markdownx-preview {
+	border: 1px solid lightgray;
+	padding: .5rem;
+}
+
+.link-nostyle {
+	text-decoration: none;
+	color: dimgray;
+	margin-top: 2rem;
+	transition: margin-top 0.2s ease;
+}
+
+.link-nostyle:hover {
+	margin-top: 0rem;
+}
+
+.image-container {
+	display: flex;
+	align-items: center;
+	height: auto;
+	width: 1rem;
+}
+
+.topbar-image {
+	padding: 0;
+}
+
+.navbar {
+	border-bottom: 1px solid lightgray;
+}
+
+.model-card {
+	border: 2px solid transparent;
+	transition: border 0.2s ease;
+}
+
+.model-card:hover {
+	cursor: pointer;
+	border: 2px solid lightgray;
+}
+
+@media only screen and (max-device-width: 600px) {
+	.p-s-2 {
+		padding-left: 3rem !important;
+		padding-right: 3rem !important;
+	}
+
+	.image-container {
+		padding: 5px;
+		width: 2rem;
+	}
+}

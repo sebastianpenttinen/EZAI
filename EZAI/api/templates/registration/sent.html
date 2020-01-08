@@ -1,0 +1,25 @@
+{% extends 'api/base.html' %}
+{% block title %}Email has been sent{% endblock %}
+{% load static %}
+
+{% block content %}
+<section class="hero has-background-white-ter is-fullheight">
+    <div id="particles-js"></div>
+    <div class="hero-body bg-dark-blue">
+        <div class="container has-text-centered">
+            <div class="column is-4 is-offset-4">
+                <h3 class="title has-text-white">Check your inbox an recovery email has been sent to you</h3>
+                <p>We've emailed you instructions for setting your password, if an account exists with the email you
+                    entered. You should receive them shortly.
+                    If you don't receive an email, please make sure you've entered the address you registered with, and
+                    check your spam folder.</p>
+            </div>
+            <a href="/">Back Home</a>
+        </div>
+    </div>
+</section>
+<script src="{% static 'api/particles.min.js' %}"></script>
+<script>
+    particlesJS.load('particles-js', "{% static 'api/particles.json' %}")
+</script>
+{% endblock %}

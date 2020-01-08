@@ -1,0 +1,39 @@
+{% extends "api/base.html" %}
+{% load util_tags %}
+{% load static %}
+
+{% block content %}
+{% include 'api/topbar.html' %}
+<section class="demo-content" style="border-top: 1px solid black;">
+    <section class="section">
+        <div class="container columns">
+            <div class="column">
+
+                <h2 class="title">{{model.title}} - Documentation</h2>
+            </div>
+            <div class="column">
+
+                {% if owner %}
+                <a href="{% url 'docs_editor' doc.pk %}" class="button is-info">
+                    <strong>
+                        Edit
+                    </strong>
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    <div class="content section">
+        {{doc.documentation|show_markdown|safe}}
+    </div>
+</section>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+<link rel="stylesheet" href="{% static 'api/github.css' %}">
+<script>
+    hljs.initHighlightingOnLoad();
+    AOS.init({
+        duration: 800,
+    })
+</script>
+{% endblock content %}

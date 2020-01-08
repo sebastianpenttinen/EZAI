@@ -1,0 +1,47 @@
+{% extends "api/base.html" %}
+{% load static %}
+
+{% block content %}
+{% include 'api/topbar.html' %}
+<div class="demo-content" style="border-top: 1px solid black;">
+  <div class="section">
+    <form action="/model/docs/edit/{{form.id.value}}" method="post">
+      {% csrf_token %}
+
+      {% for field in form.hidden_fields %}
+      {{ field }}
+      {% endfor %}
+
+      {% for field in form.visible_fields %}
+      {{ field }}
+      {% endfor %}
+      <button class="button is-info" type="submit">Submit</button>
+    </form>
+  </div>
+  <div class="content">
+    {{form.media}}
+  </div>
+  
+</div>
+<div class="section" style="padding-bottom: .5em">
+  <div class="box">
+    <div class="content">
+      <p>
+        Please take some time to read our recomendations on creating documentation pages for your model. It is
+        of utmost importance to have good documentation with code examples.
+      </p>
+
+      <a href="{% url 'help' %}" class="button is-info">
+        <strong>
+          Guide
+        </strong>
+      </a>
+    </div>
+  </div>
+</div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.13.1/highlight.min.js"></script>
+<link rel="stylesheet" href="{% static 'api/github.css' %}">
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+{% endblock content %}

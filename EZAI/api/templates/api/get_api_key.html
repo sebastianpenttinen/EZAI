@@ -1,0 +1,82 @@
+{% extends "api/base.html" %}
+
+{% load bulma_tags %}
+
+{% block content %}
+{% include 'api/topbar.html' %}
+<div>
+    <section class="section" style="padding-bottom: 0;">
+        <div class="box">
+            <h1 class="title">
+                Create Client
+            </h1>
+            <form action="{% url 'get_api_key' %}" method="post">
+                {% csrf_token %}
+                {{ register_form }}
+                <div class="section">
+                    {% for field in form.hidden_fields %}
+                    {{ field }}
+                    {% endfor %}
+
+                    {% for field in form.visible_fields %}
+                    <div class="field">
+                        <div class="control">
+                            <input id="{{field.id_for_label}}" name="{{field.name}}" class="input is-large" placeholder="{{field.name}}"
+                                value="{% if field.value is None %}{% else %}{{field.value}}{% endif %}">
+                            {{field.errors}}
+                        </div>
+                    </div>
+                    {% endfor %}
+                    <button class="button is-block is-info is-block" type="submit" name="register">Register</button>
+                </div>
+            </form>
+        </div>
+    </section>
+    <br>
+    <!-- Should the client list be on the same page? -->
+    {% if api_keys %}
+    <section class="section">
+        <div class="box">
+            <h1 class="title">Clients</h1>
+            <div class="content">
+                <table class="table is-striped is-fullwidth is-bordered">
+                    <thead>
+                        <tr>
+                            <th>Client Name</th>
+                            <th>Key</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Loop through users clients! -->
+                        {% for api_key in api_keys %}
+                        <tr>
+                            <td>{{api_key.name}}</td>
+                            <td>{{api_key.key}}</td>
+                            {%if api_key.active%}
+                            <td>Active </td>
+                            <form action = "{% url 'get_api_key' %}" method = "post">
+                                    {% csrf_token %}
+                                    {{ revoke_key_form }}
+                                    <input type="hidden" value='{{api_key.key}}' name='revoke'></input>
+                                <td> <button class="button is-block is-info is-block" type="submit" name="revoke_key">Revoke</button></td>
+                                </form>
+                            {% else %}
+                            <td>Not active</td>
+                            <td> <button class="button is-block is-info is-block" type="submit" name="revoke_key" disabled>Revoke</button></td>
+                            {% endif %}
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+</div>
+<script>
+    AOS.init({
+        duration: 800,
+    })
+</script>
+{% endblock content %}

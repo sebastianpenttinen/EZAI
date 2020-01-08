@@ -1,0 +1,10 @@
+{% extends "api/base.html" %}
+{% block content %}
+    {% include 'api/topbar.html' %}
+        <div class="map"></div>
+        {%load static%}
+            <img src="{% static "/images/placeholder.jpg" %} " alt="Could not load">
+            
+            
+        </div>
+{% endblock content %}

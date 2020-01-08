@@ -1,0 +1,48 @@
+{% extends "api/base.html" %}
+
+{% block content %}
+{% include 'api/topbar.html' %}
+<div class="main-content">
+    <br>
+    <section class="section" style="padding-top: 0;">
+        <div class="box">
+            <h1 class="title">Manage Users Keys</h1>
+            <div class="content">
+                <table class="table is-striped is-fullwidth is-bordered">
+                    <thead>
+                        <tr>
+                            <th>User</th>
+                            <th>Client</th>
+                            <th>Key</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for key in keys %}
+                        {% for field in form.hidden_fields %}
+                        {{ field }}
+
+                        {% endfor %}
+                        <tr>
+                            <td>{{key.customer.user.get_username}}</td>
+                            <td>{{key.name}}</td>
+                            <td>{{key.key}}</td>
+                            <form action = "/manage_users" method = "post">
+                                {% csrf_token %}
+                                <input type="hidden" value='{{key.key}}' name='revoke'></input>
+                            <td> <button class="button is-block is-info is-block" type="submit">Revoke</button></td>
+                            </form>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</div>
+<script>
+    AOS.init({
+        duration: 800,
+    })
+</script>
+{% endblock content %}

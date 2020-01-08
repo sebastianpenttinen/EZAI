@@ -1,0 +1,70 @@
+{% extends "api/base.html" %}
+{% load static %}
+
+{% block content %}
+<main class="page-content">
+    {% include 'api/topbar.html' %}
+    <div id="particles-js">
+        <div class="wrapper">
+            <div class="hero is-medium">
+                <div class="hero-body">
+                    <div class="container">
+                        <div class="column has-text-centered">
+                            <div data-aos="fade-up">
+                                <h1 class="title has-text-white">Documentation Guide</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="section p-s-2 text-justify">
+        <div class="hero is-large">
+            <div class="container">
+                <h1 data-aos="fade-down" class="title has-text-centered">Let's get started!</h1>
+                <p data-aos="fade-up">
+                    When creating documentation it is easy to forget details that are needed when using the model. Therefore we at ezai believe that it is beneficial for us to help you create the best documentation possible. If you ever feel lost, you can return to these guides in the future. 
+                    <br>
+                    <br>
+                    An initial documentation is automatically created when your model is submitted. You can edit the documentation by finding your model in the “model zoo” section of the page.                      
+                </p>
+            </div>
+        </div>
+    </section>
+    <section class="section p-s-2 text-justify">
+        <div class="hero is-large">
+            <div class="container">
+                <h1 data-aos="fade-up" class="title has-text-centered">Formatting</h1>
+                <ul data-aos="fade-up">
+                  <li>
+                    <p>
+                      <strong>&#8226; Overview: </strong> A description of your model and what it does. It is important to describe what you intend the model to be used for. 
+                    </p>
+                  </li>
+                  <br>
+                  <li>
+                    <p>
+                      <strong>&#8226; Usage: </strong> Explanation about the usage of your model. In this section it is necessary to include code examples in at least one language (the language does not matter). 
+                    </p>
+                  </li>
+                  <br>
+                  <li>
+                    <p>
+                      <strong>&#8226; Data: </strong> A description of the data used to train the model. This is one of the most important steps. It is even recommended that you provide a link to the data used.  
+                    </p>
+                  </li>  
+                </ul>
+            </div>
+        </div>
+    </section>
+    <footer class="footer bg-dark-blue has-text-white">
+    </footer>
+</main>
+
+<script>
+    AOS.init({
+        duration: 800,
+    })
+</script>
+{% endblock content %}
