@@ -48,7 +48,7 @@ This site is built using:
 
 ### Markdown Editor
 
-![Markdown-Editor](Images/Mardown.gif)
+![Markdown-Editor](Images/Markdown.gif)
 
 ### Submit Model
 
